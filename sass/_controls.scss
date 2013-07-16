@@ -1,0 +1,76 @@
+@import "compass/css3";
+@import "vars";
+
+$controlHeight: 27px;
+$btnColorChange: 2%;
+
+.buttonbar {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-align-items: center;
+  height: $controlHeight;
+}
+
+button, input {
+  display: inline-block;
+}
+
+button {
+  @include border-radius(2px);
+  background-color: $grayLightest;
+  border: 1px solid $lineColor;
+  color: $grayDarker;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 27px;
+  min-width: 70px;
+  padding: 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+
+  &.disabled, &:disabled {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: $blue;
+    outline: 4px solid #c2daff;
+  }
+
+  &:not(.disabled):not(:disabled) {
+    &:focus, &:hover {
+      background-color: lighten($grayLightest, $btnColorChange);
+    }
+    &:active {
+      background-color: darken($grayLightest, $btnColorChange);
+    }
+  }
+
+  &.submit {
+    background-color: $blue;
+    border-color: $blue;
+    color: $white;
+
+    &:not(.disabled):not(:disabled) {
+      &:focus, &:hover {
+        background-color: lighten($blue, $btnColorChange);
+      }
+      &:active {
+        background-color: darken($blue, $btnColorChange);
+      }
+    }
+  }
+}
+
+input {
+  border: 1px solid $lineColor;
+  font-size: inherit;
+  line-height: $controlHeight - 4px;
+  padding: 2px;
+
+  &:focus {
+    border-color: $blue;
+    outline: none;
+  }
+}

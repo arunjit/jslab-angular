@@ -63,37 +63,120 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 29, ../sass/main.scss */
+/* line 7, ../sass/_controls.scss */
+.buttonbar {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-align-items: center;
+  height: 27px;
+}
+
+/* line 14, ../sass/_controls.scss */
+button, input {
+  display: inline-block;
+}
+
+/* line 18, ../sass/_controls.scss */
+button {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  background-color: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  color: #333333;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 27px;
+  min-width: 70px;
+  padding: 0 15px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+}
+/* line 32, ../sass/_controls.scss */
+button.disabled, button:disabled {
+  opacity: 0.5;
+}
+/* line 36, ../sass/_controls.scss */
+button:focus {
+  border-color: #4d90fe;
+  outline: 4px solid #c2daff;
+}
+/* line 42, ../sass/_controls.scss */
+button:not(.disabled):not(:disabled):focus, button:not(.disabled):not(:disabled):hover {
+  background-color: #f6f6f6;
+}
+/* line 45, ../sass/_controls.scss */
+button:not(.disabled):not(:disabled):active {
+  background-color: #ececec;
+}
+/* line 50, ../sass/_controls.scss */
+button.submit {
+  background-color: #4d90fe;
+  border-color: #4d90fe;
+  color: white;
+}
+/* line 56, ../sass/_controls.scss */
+button.submit:not(.disabled):not(:disabled):focus, button.submit:not(.disabled):not(:disabled):hover {
+  background-color: #5796fe;
+}
+/* line 59, ../sass/_controls.scss */
+button.submit:not(.disabled):not(:disabled):active {
+  background-color: #438afe;
+}
+
+/* line 66, ../sass/_controls.scss */
+input {
+  border: 1px solid #e5e5e5;
+  font-size: inherit;
+  line-height: 23px;
+  padding: 2px;
+}
+/* line 72, ../sass/_controls.scss */
+input:focus {
+  border-color: #4d90fe;
+  outline: none;
+}
+
+/* line 5, ../sass/main.scss */
 html, body {
   height: 100%;
 }
 
-/* line 33, ../sass/main.scss */
+/* line 9, ../sass/main.scss */
 body {
   font-family: "Roboto", "Open Sans", "Arial", sans-serif;
   font-size: 13px;
   line-height: 19px;
 }
 
-/* line 39, ../sass/main.scss */
+/* line 15, ../sass/main.scss */
 a {
   color: #3366dd;
   text-decoration: none;
 }
-/* line 43, ../sass/main.scss */
-a:hover {
+/* line 19, ../sass/main.scss */
+a:focus, a:hover {
+  outline: none;
   text-decoration: underline;
 }
-/* line 47, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 a:active {
   color: #dd4b39;
 }
-/* line 51, ../sass/main.scss */
+/* line 28, ../sass/main.scss */
 a:visited {
   color: #1111cc;
 }
 
-/* line 56, ../sass/main.scss */
+/* line 33, ../sass/main.scss */
+.flex-space {
+  -webkit-flex: 10;
+}
+
+/* line 37, ../sass/main.scss */
 header.pagehead {
   background-color: #acacac;
   color: #333333;
@@ -102,96 +185,121 @@ header.pagehead {
   padding: 0 20px;
   text-transform: uppercase;
 }
-/* line 64, ../sass/main.scss */
+/* line 45, ../sass/main.scss */
 header.pagehead > * {
   display: inline-block;
 }
-/* line 68, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 header.pagehead a {
   color: inherit;
   display: inline-block;
   padding: 5px;
 }
-/* line 73, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 header.pagehead a:hover {
   background-color: #e5e5e5;
   text-decoration: none;
 }
-/* line 79, ../sass/main.scss */
+/* line 60, ../sass/main.scss */
 header.pagehead h1 {
   font-weight: bold;
 }
-/* line 82, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 header.pagehead h1 a {
   padding: 0;
 }
-/* line 85, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 header.pagehead h1 a:hover {
   background-color: transparent;
 }
-/* line 92, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 header.pagehead nav {
   margin-left: 40px;
 }
 
-/* line 97, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .content {
   padding: 0 20px;
 }
 
-/* line 102, ../sass/main.scss */
+/* line 83, ../sass/main.scss */
 .multiselect {
   display: -webkit-flex;
-  -webkit-flow-direction: row;
+  -webkit-flex-direction: row;
+  margin-top: 10px;
 }
-/* line 106, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 .multiselect .selected {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
   background-color: #e5e5e5;
   -webkit-flex: 1;
   padding: 10px;
-  margin-top: 10px;
 }
-/* line 112, ../sass/main.scss */
-.multiselect .selected .product {
+/* line 95, ../sass/main.scss */
+.multiselect .selected ul {
+  -webkit-flex: 1;
+}
+/* line 98, ../sass/main.scss */
+.multiselect .selected ul .product {
   display: -webkit-flex;
+  margin: 0 0 5px 0;
 }
-/* line 115, ../sass/main.scss */
-.multiselect .selected .product .delete {
+/* line 102, ../sass/main.scss */
+.multiselect .selected ul .product .delete {
   background-color: #3d9400;
   cursor: pointer;
   margin-left: 5px;
   height: 20px;
   width: 20px;
 }
-/* line 125, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
+.multiselect .selected .buttonbar {
+  margin-top: 5px;
+}
+/* line 117, ../sass/main.scss */
 .multiselect .dataset {
   -webkit-flex: 3;
+  margin-left: 10px;
 }
-/* line 128, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 .multiselect .dataset .product {
   display: -webkit-inline-flex;
   cursor: pointer;
-  width: 25%;
+  margin: 0 10px 10px 0;
+  width: 33%;
 }
-/* line 133, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .multiselect .dataset .product.selected {
   color: white;
   background-color: #4d90fe;
 }
-/* line 140, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
+.multiselect .dataset .product.selected .detail {
+  color: #e5e5e5;
+}
+/* line 137, ../sass/main.scss */
+.multiselect .dataset ul {
+  margin-top: 10px;
+}
+/* line 142, ../sass/main.scss */
+.multiselect .dataset .buttonbar input {
+  margin-right: 20px;
+  width: 50%;
+}
+/* line 149, ../sass/main.scss */
 .multiselect .product {
-  -webkit-flow-direction: row;
+  -webkit-flex-direction: row;
   -webkit-align-items: center;
   background-color: #f1f1f1;
-  margin: 10px;
   padding: 10px;
   -webkit-user-select: none;
 }
-/* line 148, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .multiselect .product .name {
   -webkit-flex: 1;
 }
-/* line 152, ../sass/main.scss */
+/* line 160, ../sass/main.scss */
 .multiselect .product .detail {
   color: #acacac;
   font-size: 11px;

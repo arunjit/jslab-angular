@@ -9,11 +9,18 @@
       <!-- Can be used like this to not have to create $scope.deselect() -->
       <!-- <span class="delete" ng-click="product.selected = false">&nbsp;</span> -->
     </ul>
+    <div class="buttonbar">
+      <button class="submit" ng-disabled="!countSelected()" ng-click="save()">Save</button>
+    </div>
   </section>
 
   <section class="dataset">
+    <div class="buttonbar">
+      <input type="text" placeholder="Filter" ng-model="model.filter">
+      <button ng-click="clear()">Clear</button>
+    </div>
     <ul>
-      <li ng-repeat="product in list" class="product"
+      <li ng-repeat="product in list | filter:model.filter" class="product"
           ng-click="toggle(product)"
           ng-class="{selected: isSelected(product)}">
         <span class="name">{{product.name}}</span>

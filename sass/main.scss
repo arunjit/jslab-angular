@@ -1,30 +1,6 @@
 @import "compass/reset";
-
-// Colors
-$red: #dd4b39;
-$green: #3d9400;
-$blue: #4d90fe;
-$white: #fff;
-$grayLightest: #f1f1f1;
-$grayLighter: #e5e5e5;
-$grayLight: #acacac;
-$gray: #909090;
-$grayDark: #666;
-$grayDarker: #333;
-$grayDarkest: #1c1c1c;
-$black: #000;
-
-$linkColor: #36d;
-$linkVisitedColor: #11c;
-$lineColor: $grayLighter;
-
-// Typography
-$fontSize: 13px;
-$lineHeight: 19px;
-
-// Sizing
-$lrPadding: 20px;
-$navLinkPadding: 5px;
+@import "vars";
+@import "controls";
 
 html, body {
   height: 100%;
@@ -40,7 +16,8 @@ a {
   color: $linkColor;
   text-decoration: none;
 
-  &:hover {
+  &:focus, &:hover {
+    outline: none;
     text-decoration: underline;
   }
 
@@ -51,6 +28,10 @@ a {
   &:visited {
     color: $linkVisitedColor;
   }
+}
+
+.flex-space {
+  -webkit-flex: 10;
 }
 
 header.pagehead {
@@ -101,47 +82,74 @@ header.pagehead {
 
 .multiselect {
   display: -webkit-flex;
-  -webkit-flow-direction: row;
+  -webkit-flex-direction: row;
+  margin-top: 10px;
 
   .selected {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
     background-color: $grayLighter;
     -webkit-flex: 1;
     padding: 10px;
-    margin-top: 10px;
 
-    .product {
-      display: -webkit-flex;
+    ul {
+      -webkit-flex: 1;
 
-      .delete {
-        background-color: $green;
-        cursor: pointer;
-        margin-left: 5px;
-        height: 20px;
-        width: 20px;
+      .product {
+        display: -webkit-flex;
+        margin: 0 0 5px 0;  // reset other margins
+
+        .delete {
+          background-color: $green;
+          cursor: pointer;
+          margin-left: 5px;
+          height: 20px;
+          width: 20px;
+        }
       }
+    }
+
+    .buttonbar {
+      margin-top: 5px;
     }
   }
 
   .dataset {
     -webkit-flex: 3;
+    margin-left: 10px;
 
     .product {
       display: -webkit-inline-flex;
       cursor: pointer;
-      width: 25%;
+      margin: 0 10px 10px 0;
+      width: 33%;
 
       &.selected {
         color: $white;
         background-color: $blue;
+
+        .detail {
+          color: $grayLighter;
+        }
+      }
+    }
+
+    ul {
+      margin-top: 10px;
+    }
+
+    .buttonbar {
+      input {
+        margin-right: 20px;
+        width: 50%;
       }
     }
   }
 
   .product {
-    -webkit-flow-direction: row;
+    -webkit-flex-direction: row;
     -webkit-align-items: center;
     background-color: $grayLightest;
-    margin: 10px;
     padding: 10px;
     -webkit-user-select: none;
 
@@ -155,4 +163,3 @@ header.pagehead {
     }
   }
 }
-
