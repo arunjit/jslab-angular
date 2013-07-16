@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Nexus 4",
+    "family": "Nexus",
+    "type": "phone",
+    "detail": ["8GB", "black"]
+  },
+  {
+    "name": "Nexus 4",
+    "family": "Nexus",
+    "type": "phone",
+    "detail": ["16GB", "black"]
+  },
+  {
+    "name": "Nexus 4",
+    "family": "Nexus",
+    "type": "phone",
+    "detail": ["8GB", "white"]
+  },
+  {
+    "name": "Nexus 4",
+    "family": "Nexus",
+    "type": "phone",
+    "detail": ["16GB", "white"]
+  },
+  {
+    "name": "Nexus 7",
+    "family": "Nexus",
+    "type": "tablet",
+    "detail": ["32GB", "black"]
+  },
+  {
+    "name": "Nexus 4 Headphones",
+    "family": "Nexus",
+    "type": "accessory",
+    "detail": ["black"]
+  },
+  {
+    "name": "Nexus 4 Wireless Charger",
+    "family": "Nexus",
+    "type": "accessory",
+    "detail": ["black"]
+  },
+  {
+    "name": "Nexus 4 Bumper",
+    "family": "Nexus",
+    "type": "accessory",
+    "detail": ["black"]
+  },
+  {
+    "name": "Nexus 4 Bumper",
+    "family": "Nexus",
+    "type": "accessory",
+    "detail": ["white"]
+  }
+]

@@ -1,0 +1,198 @@
+/* line 17, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 29, ../sass/main.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 33, ../sass/main.scss */
+body {
+  font-family: "Roboto", "Open Sans", "Arial", sans-serif;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+/* line 39, ../sass/main.scss */
+a {
+  color: #3366dd;
+  text-decoration: none;
+}
+/* line 43, ../sass/main.scss */
+a:hover {
+  text-decoration: underline;
+}
+/* line 47, ../sass/main.scss */
+a:active {
+  color: #dd4b39;
+}
+/* line 51, ../sass/main.scss */
+a:visited {
+  color: #1111cc;
+}
+
+/* line 56, ../sass/main.scss */
+header.pagehead {
+  background-color: #acacac;
+  color: #333333;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+/* line 64, ../sass/main.scss */
+header.pagehead > * {
+  display: inline-block;
+}
+/* line 68, ../sass/main.scss */
+header.pagehead a {
+  color: inherit;
+  display: inline-block;
+  padding: 5px;
+}
+/* line 73, ../sass/main.scss */
+header.pagehead a:hover {
+  background-color: #e5e5e5;
+  text-decoration: none;
+}
+/* line 79, ../sass/main.scss */
+header.pagehead h1 {
+  font-weight: bold;
+}
+/* line 82, ../sass/main.scss */
+header.pagehead h1 a {
+  padding: 0;
+}
+/* line 85, ../sass/main.scss */
+header.pagehead h1 a:hover {
+  background-color: transparent;
+}
+/* line 92, ../sass/main.scss */
+header.pagehead nav {
+  margin-left: 40px;
+}
+
+/* line 97, ../sass/main.scss */
+.content {
+  padding: 0 20px;
+}
+
+/* line 102, ../sass/main.scss */
+.multiselect {
+  display: -webkit-flex;
+  -webkit-flow-direction: row;
+}
+/* line 106, ../sass/main.scss */
+.multiselect .selected {
+  background-color: #e5e5e5;
+  -webkit-flex: 1;
+  padding: 10px;
+  margin-top: 10px;
+}
+/* line 112, ../sass/main.scss */
+.multiselect .selected .product {
+  display: -webkit-flex;
+}
+/* line 115, ../sass/main.scss */
+.multiselect .selected .product .delete {
+  background-color: #3d9400;
+  cursor: pointer;
+  margin-left: 5px;
+  height: 20px;
+  width: 20px;
+}
+/* line 125, ../sass/main.scss */
+.multiselect .dataset {
+  -webkit-flex: 3;
+}
+/* line 128, ../sass/main.scss */
+.multiselect .dataset .product {
+  display: -webkit-inline-flex;
+  cursor: pointer;
+  width: 25%;
+}
+/* line 133, ../sass/main.scss */
+.multiselect .dataset .product.selected {
+  color: white;
+  background-color: #4d90fe;
+}
+/* line 140, ../sass/main.scss */
+.multiselect .product {
+  -webkit-flow-direction: row;
+  -webkit-align-items: center;
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 10px;
+  -webkit-user-select: none;
+}
+/* line 148, ../sass/main.scss */
+.multiselect .product .name {
+  -webkit-flex: 1;
+}
+/* line 152, ../sass/main.scss */
+.multiselect .product .detail {
+  color: #acacac;
+  font-size: 11px;
+}

@@ -1,0 +1,158 @@
+@import "compass/reset";
+
+// Colors
+$red: #dd4b39;
+$green: #3d9400;
+$blue: #4d90fe;
+$white: #fff;
+$grayLightest: #f1f1f1;
+$grayLighter: #e5e5e5;
+$grayLight: #acacac;
+$gray: #909090;
+$grayDark: #666;
+$grayDarker: #333;
+$grayDarkest: #1c1c1c;
+$black: #000;
+
+$linkColor: #36d;
+$linkVisitedColor: #11c;
+$lineColor: $grayLighter;
+
+// Typography
+$fontSize: 13px;
+$lineHeight: 19px;
+
+// Sizing
+$lrPadding: 20px;
+$navLinkPadding: 5px;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", "Open Sans", "Arial", sans-serif;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $red;
+  }
+
+  &:visited {
+    color: $linkVisitedColor;
+  }
+}
+
+header.pagehead {
+  background-color: $grayLight;
+  color: $grayDarker;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 $lrPadding;
+  text-transform: uppercase;
+
+  & > * {
+    display: inline-block;
+  }
+
+  a {
+    color: inherit;
+    display: inline-block;
+    padding: $navLinkPadding;
+
+    &:hover {
+      background-color: $grayLighter;
+      text-decoration: none;
+    }
+  }
+
+  h1 {
+    font-weight: bold;
+
+    a {
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+  }
+
+  nav {
+    margin-left: 2*$lrPadding;
+  }
+}
+
+.content {
+  padding: 0 $lrPadding;
+}
+
+
+.multiselect {
+  display: -webkit-flex;
+  -webkit-flow-direction: row;
+
+  .selected {
+    background-color: $grayLighter;
+    -webkit-flex: 1;
+    padding: 10px;
+    margin-top: 10px;
+
+    .product {
+      display: -webkit-flex;
+
+      .delete {
+        background-color: $green;
+        cursor: pointer;
+        margin-left: 5px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+  .dataset {
+    -webkit-flex: 3;
+
+    .product {
+      display: -webkit-inline-flex;
+      cursor: pointer;
+      width: 25%;
+
+      &.selected {
+        color: $white;
+        background-color: $blue;
+      }
+    }
+  }
+
+  .product {
+    -webkit-flow-direction: row;
+    -webkit-align-items: center;
+    background-color: $grayLightest;
+    margin: 10px;
+    padding: 10px;
+    -webkit-user-select: none;
+
+    .name {
+      -webkit-flex: 1;
+    }
+
+    .detail {
+      color: $grayLight;
+      font-size: 11px;
+    }
+  }
+}
+

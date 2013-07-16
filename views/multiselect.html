@@ -1,0 +1,28 @@
+<section class="multiselect">
+  <section class="selected">
+    <ul>
+      <li ng-repeat="product in list | filter:isSelected" class="product">
+        <span class="name">{{product.name}}</span>
+        <span class="detail">{{product.detail.join(',')}}</span>
+        <span class="delete" ng-click="deselect(product)">&nbsp;</span>
+      </li>
+      <!-- Can be used like this to not have to create $scope.deselect() -->
+      <!-- <span class="delete" ng-click="product.selected = false">&nbsp;</span> -->
+    </ul>
+  </section>
+
+  <section class="dataset">
+    <ul>
+      <li ng-repeat="product in list" class="product"
+          ng-click="toggle(product)"
+          ng-class="{selected: isSelected(product)}">
+        <span class="name">{{product.name}}</span>
+        <span class="detail">{{product.detail.join(',')}}</span>
+      </li>
+      <!-- Alternate, but couples "selected" key between ctrl and view. -->
+      <!-- ng-class="{selected: product.selected}" -->
+      <!-- Can be used like this to not have to create $scope.toggle() -->
+      <!-- ng-click="product.selected = !product.selected" -->
+    </ul>
+  </section>
+</section>
