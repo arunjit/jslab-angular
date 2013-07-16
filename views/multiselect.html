@@ -3,7 +3,7 @@
     <ul>
       <li ng-repeat="product in list | filter:isSelected" class="product">
         <span class="name">{{product.name}}</span>
-        <span class="detail">{{product.detail.join(',')}}</span>
+        <span class="detail">{{product.detail.join(', ')}}</span>
         <span class="delete" ng-click="deselect(product)">&nbsp;</span>
       </li>
       <!-- Can be used like this to not have to create $scope.deselect() -->
@@ -16,15 +16,15 @@
 
   <section class="dataset">
     <div class="buttonbar">
-      <input type="text" placeholder="Filter" ng-model="model.filter">
-      <button ng-click="clear()">Clear</button>
+      <input type="search" placeholder="Filter" ng-model="model.filter">
+      <button ng-click="clear()" ng-disabled="!countSelected()">Clear</button>
     </div>
     <ul>
       <li ng-repeat="product in list | filter:model.filter" class="product"
           ng-click="toggle(product)"
           ng-class="{selected: isSelected(product)}">
         <span class="name">{{product.name}}</span>
-        <span class="detail">{{product.detail.join(',')}}</span>
+        <span class="detail">{{product.detail.join(', ')}}</span>
       </li>
       <!-- Alternate, but couples "selected" key between ctrl and view. -->
       <!-- ng-class="{selected: product.selected}" -->

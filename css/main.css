@@ -247,47 +247,51 @@ header.pagehead nav {
 }
 /* line 102, ../sass/main.scss */
 .multiselect .selected ul .product .delete {
-  background-color: #3d9400;
+  background-image: url("/images/delete.png");
+  background-position: center center;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
   cursor: pointer;
   margin-left: 5px;
   height: 20px;
   width: 20px;
+  opacity: 0.6;
 }
-/* line 112, ../sass/main.scss */
+/* line 116, ../sass/main.scss */
 .multiselect .selected .buttonbar {
   margin-top: 5px;
 }
-/* line 117, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 .multiselect .dataset {
   -webkit-flex: 3;
   margin-left: 10px;
 }
-/* line 121, ../sass/main.scss */
+/* line 125, ../sass/main.scss */
 .multiselect .dataset .product {
   display: -webkit-inline-flex;
   cursor: pointer;
   margin: 0 10px 10px 0;
   width: 33%;
 }
-/* line 127, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .multiselect .dataset .product.selected {
   color: white;
   background-color: #4d90fe;
 }
-/* line 131, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .multiselect .dataset .product.selected .detail {
   color: #e5e5e5;
 }
-/* line 137, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 .multiselect .dataset ul {
   margin-top: 10px;
 }
-/* line 142, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .multiselect .dataset .buttonbar input {
   margin-right: 20px;
   width: 50%;
 }
-/* line 149, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .multiselect .product {
   -webkit-flex-direction: row;
   -webkit-align-items: center;
@@ -295,11 +299,11 @@ header.pagehead nav {
   padding: 10px;
   -webkit-user-select: none;
 }
-/* line 156, ../sass/main.scss */
+/* line 160, ../sass/main.scss */
 .multiselect .product .name {
   -webkit-flex: 1;
 }
-/* line 160, ../sass/main.scss */
+/* line 164, ../sass/main.scss */
 .multiselect .product .detail {
   color: #acacac;
   font-size: 11px;
