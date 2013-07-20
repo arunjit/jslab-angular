@@ -2,16 +2,36 @@
 
 angular.module('main').controller('DragDropCtrl',
     function($scope, $http) {
-      var items = $scope.items = [];
-      var selected = $scope.selected = [];
-      $scope.dropped = {};
+      var list = $scope.list = [];
+      var documents = $scope.documents = [];
+      var accessories = $scope.accessories = [];
+      $scope.model = {
+        filter: ''
+      };
 
       $http.get('data/products.json').success(function(d) {
-        items.push.apply(items, d);
+        list.push.apply(list, d);
       });
 
-      $scope.onDrop = function(item) {
-        selected.push(item);
+      $scope.onDropDocument = function(product) {
+        documents.push(product);
+      };
+
+      $scope.onDropAccessory = function(product) {
+        accessories.push(product);
+      };
+
+      $scope.clearDocuments = function() {
+        documents = $scope.documents = [];
+      };
+
+      $scope.clearAccessories = function() {
+        accessories = $scope.accessories = [];
+      };
+
+      $scope.clearAll = function() {
+        documents = $scope.documents = [];
+        accessories = $scope.accessories = [];
       };
     }
 );

@@ -1,5 +1,5 @@
-<section class="multiselect">
-  <section class="selected">
+<section class="multiselect finsky columns">
+  <section class="selection col1">
     <ul>
       <li ng-repeat="product in list | filter:isSelected" class="product">
         <span class="name">{{product.name}}</span>
@@ -14,7 +14,7 @@
     </div>
   </section>
 
-  <section class="dataset">
+  <section class="dataset col3">
     <div class="buttonbar">
       <input type="search" placeholder="Filter" ng-model="model.filter">
       <button ng-click="clear()" ng-disabled="!countSelected()">Clear</button>

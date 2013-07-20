@@ -10,6 +10,10 @@ body {
   font-family: "Roboto", "Open Sans", "Arial", sans-serif;
   font-size: $fontSize;
   line-height: $lineHeight;
+
+  // Use flexbox everywhere!
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
 }
 
 a {
@@ -77,6 +81,33 @@ header.pagehead {
 
 .content {
   padding: 0 $lrPadding;
+
+  // Use flexbox everywhere!
+  -webkit-flex: 1;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+
+  div:first-child, section:first-child {
+    -webkit-flex: 1;
+    margin-bottom: 10px;
+  }
+}
+
+.columns {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+
+  .col1 {
+    -webkit-flex: 1;
+  }
+
+  .col2 {
+    -webkit-flex: 2;
+  }
+
+  .col3 {
+    -webkit-flex: 3;
+  }
 }
 
 .finsky {
@@ -94,46 +125,6 @@ header.pagehead {
     .detail {
       color: $grayLight;
       font-size: 11px;
-    }
-  }
-}
-
-// MultiSelect --------------------------------
-.multiselect {
-  display: -webkit-flex;
-  -webkit-flex-direction: row;
-  margin-top: 10px;
-
-  .selected {
-    display: -webkit-flex;
-    -webkit-flex-direction: column;
-    background-color: $grayLighter;
-    -webkit-flex: 1;
-    padding: 10px;
-
-    ul {
-      -webkit-flex: 1;
-
-      .product {
-        display: -webkit-flex;
-        margin: 0 0 5px 0;  // reset other margins
-
-        .delete {
-          background-image: url("/images/delete.png");
-          background-position: center center;
-          background-size: 12px 12px;
-          background-repeat: no-repeat;
-          cursor: pointer;
-          margin-left: 5px;
-          height: 20px;
-          width: 20px;
-          opacity: 0.6;
-        }
-      }
-    }
-
-    .buttonbar {
-      margin-top: 5px;
     }
   }
 
@@ -168,28 +159,61 @@ header.pagehead {
       }
     }
   }
+
+  .selection {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+    background-color: $grayLighter;
+    padding: 10px;
+
+    ul {
+      -webkit-flex: 1;
+      overflow: scroll;
+
+      .product {
+        display: -webkit-flex;
+        margin: 0 0 5px 0;  // reset other margins
+
+        .delete {
+          background-image: url("/images/delete.png");
+          background-position: center center;
+          background-size: 12px 12px;
+          background-repeat: no-repeat;
+          cursor: pointer;
+          margin-left: 5px;
+          height: 20px;
+          width: 20px;
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .buttonbar {
+      margin-top: 10px;
+    }
+  }
+}
+
+// MultiSelect --------------------------------
+.multiselect {
+  margin-top: 10px;
 }
 
 // DragDrop --------------------------------
 .dragdrop {
-  .dropzone {
-    border: 1px solid $lineColor;
-    height: 400px;
-    width: 400px;
+  margin-top: 10px;
 
-    .dropped {
-      background-color: $grayLighter;
-      padding: 4px 10px;
+  .selections {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+
+    .selection {
+      -webkit-flex: 1;
     }
-  }
 
-  .item {
-    width: 200px;
-    height: $lineHeight;
-    line-height: $lineHeight;
-
-    &.aj-dragstart {
-      opacity: 0.6;
+    h3 {
+      font-weight: bold;
+      text-transform: uppercase;
     }
   }
 }

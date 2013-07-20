@@ -9,6 +9,14 @@ $btnColorChange: 2%;
   -webkit-flex-direction: row;
   -webkit-align-items: center;
   height: $controlHeight;
+
+  button {
+    margin-right: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
 }
 
 button, input {
@@ -18,7 +26,7 @@ button, input {
 button {
   @include border-radius(2px);
   background-color: $grayLightest;
-  border: 1px solid $lineColor;
+  border: 1px solid $grayLight;
   color: $grayDarker;
   font-size: 0.8em;
   font-weight: bold;
@@ -49,7 +57,7 @@ button {
 
   &.submit {
     background-color: $blue;
-    border-color: $blue;
+    border-color: darken($blue, 5%);
     color: $white;
 
     &:not(.disabled):not(:disabled) {

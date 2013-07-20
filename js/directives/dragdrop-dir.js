@@ -29,6 +29,9 @@ angular.module('main').directive('ajDrag',
       return {
         restrict: 'A',
         link: function(scope, element, attrs) {
+          if (attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) {
+            return;
+          }
           var data = scope.$eval(attrs.ajDrag || attrs.ngModel);
           var dragFn = $parse(attrs.ajDragFn);
 
@@ -74,6 +77,9 @@ angular.module('main').directive('ajDrag',
       return {
         restrict: 'A',
         link: function(scope, element, attrs) {
+          if (attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) {
+            return;
+          }
           var dropModel = attrs.ajDrop || attrs.ngModel;
           var dropFn = $parse(attrs.ajDropFn);
 

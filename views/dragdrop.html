@@ -1,16 +1,50 @@
-<div class="dragdrop">
-  <div class="dropzone" aj-drop="dropped" aj-drop-fn="onDrop($data)">
-    <span ng-show="dropped.name" class="dropped">Added: {{dropped.name}}</span>
+<div class="dragdrop finsky columns">
+
+  <section class="selections col1">
+    <h3>Documents</h3>
+    <section class="documents selection dropzone"
+             aj-drop aj-drop-fn="onDropDocument($data)">
+      <ul>
+        <li ng-repeat="product in documents" class="product">
+          <span class="name">{{product.name}}</span>
+          <span class="detail">{{product.detail.join(', ')}}</span>
+          <!-- <span class="delete" ng-click="deselect(product)">&nbsp;</span> -->
+        </li>
+      </ul>
+      <div class="buttonbar">
+        <button ng-disabled="!documents.length" class="submit">Save</button>
+        <button ng-disabled="!documents.length" ng-click="clearDocuments()">Clear</button>
+      </div>
+    </section>
+
+    <h3>Accessories</h3>
+    <section class="accessories selection dropzone"
+             aj-drop aj-drop-fn="onDropAccessory($data)">
+      <ul>
+        <li ng-repeat="product in accessories" class="product">
+          <span class="name">{{product.name}}</span>
+          <span class="detail">{{product.detail.join(', ')}}</span>
+          <!-- <span class="delete" ng-click="deselect(product)">&nbsp;</span> -->
+        </li>
+      </ul>
+      <div class="buttonbar">
+        <button ng-disabled="!accessories.length" class="submit">Save</button>
+        <button ng-disabled="!accessories.length" ng-click="clearAccessories()">Clear</button>
+      </div>
+    </section>
+  </section>
+
+  <section class="dataset col3">
+    <div class="buttonbar">
+      <input type="search" placeholder="Filter" ng-model="model.filter">
+      <button ng-click="clearAll()">Clear All</button>
+    </div>
     <ul>
-      <li ng-repeat="item in selected" class="item">
-        <span ng-bind="item.name"></span>
+      <li ng-repeat="product in list | filter:model.filter" class="product"
+          aj-drag="product">
+        <span class="name">{{product.name}}</span>
+        <span class="detail">{{product.detail.join(', ')}}</span>
       </li>
     </ul>
-  </div>
-
-  <ul>
-    <li ng-repeat="item in items" class="item" aj-drag="item">
-      <span ng-bind="item.name"></span>
-    </li>
-  </ul>
+  </section>
 </div>
