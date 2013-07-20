@@ -1,0 +1,16 @@
+<div class="dragdrop">
+  <div class="dropzone" aj-drop="dropped" aj-drop-fn="onDrop($data)">
+    <span ng-show="dropped.name" class="dropped">Added: {{dropped.name}}</span>
+    <ul>
+      <li ng-repeat="item in selected" class="item">
+        <span ng-bind="item.name"></span>
+      </li>
+    </ul>
+  </div>
+
+  <ul>
+    <li ng-repeat="item in items" class="item" aj-drag="item">
+      <span ng-bind="item.name"></span>
+    </li>
+  </ul>
+</div>

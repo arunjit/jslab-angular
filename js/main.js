@@ -6,6 +6,10 @@ angular.module('main', []).config(
             templateUrl: 'views/multiselect.html',
             controller: 'MultiSelectCtrl'
           }).
+          when('/dragdrop', {
+            templateUrl: 'views/dragdrop.html',
+            controller: 'DragDropCtrl'
+          }).
           otherwise({redirectTo: '/'});
     }
 );

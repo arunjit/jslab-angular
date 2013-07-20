@@ -223,12 +223,30 @@ header.pagehead nav {
 }
 
 /* line 83, ../sass/main.scss */
+.finsky .product {
+  -webkit-flex-direction: row;
+  -webkit-align-items: center;
+  background-color: #f1f1f1;
+  padding: 10px;
+  -webkit-user-select: none;
+}
+/* line 90, ../sass/main.scss */
+.finsky .product .name {
+  -webkit-flex: 1;
+}
+/* line 94, ../sass/main.scss */
+.finsky .product .detail {
+  color: #acacac;
+  font-size: 11px;
+}
+
+/* line 102, ../sass/main.scss */
 .multiselect {
   display: -webkit-flex;
   -webkit-flex-direction: row;
   margin-top: 10px;
 }
-/* line 88, ../sass/main.scss */
+/* line 107, ../sass/main.scss */
 .multiselect .selected {
   display: -webkit-flex;
   -webkit-flex-direction: column;
@@ -236,16 +254,16 @@ header.pagehead nav {
   -webkit-flex: 1;
   padding: 10px;
 }
-/* line 95, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .multiselect .selected ul {
   -webkit-flex: 1;
 }
-/* line 98, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 .multiselect .selected ul .product {
   display: -webkit-flex;
   margin: 0 0 5px 0;
 }
-/* line 102, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 .multiselect .selected ul .product .delete {
   background-image: url("/images/delete.png");
   background-position: center center;
@@ -257,54 +275,59 @@ header.pagehead nav {
   width: 20px;
   opacity: 0.6;
 }
-/* line 116, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .multiselect .selected .buttonbar {
   margin-top: 5px;
 }
-/* line 121, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .multiselect .dataset {
   -webkit-flex: 3;
   margin-left: 10px;
 }
-/* line 125, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 .multiselect .dataset .product {
   display: -webkit-inline-flex;
   cursor: pointer;
   margin: 0 10px 10px 0;
   width: 33%;
 }
-/* line 131, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 .multiselect .dataset .product.selected {
   color: white;
   background-color: #4d90fe;
 }
-/* line 135, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 .multiselect .dataset .product.selected .detail {
   color: #e5e5e5;
 }
-/* line 141, ../sass/main.scss */
+/* line 160, ../sass/main.scss */
 .multiselect .dataset ul {
   margin-top: 10px;
 }
-/* line 146, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .multiselect .dataset .buttonbar input {
   margin-right: 20px;
   width: 50%;
 }
-/* line 153, ../sass/main.scss */
-.multiselect .product {
-  -webkit-flex-direction: row;
-  -webkit-align-items: center;
-  background-color: #f1f1f1;
-  padding: 10px;
-  -webkit-user-select: none;
+
+/* line 175, ../sass/main.scss */
+.dragdrop .dropzone {
+  border: 1px solid #e5e5e5;
+  height: 400px;
+  width: 400px;
 }
-/* line 160, ../sass/main.scss */
-.multiselect .product .name {
-  -webkit-flex: 1;
+/* line 180, ../sass/main.scss */
+.dragdrop .dropzone .dropped {
+  background-color: #e5e5e5;
+  padding: 4px 10px;
 }
-/* line 164, ../sass/main.scss */
-.multiselect .product .detail {
-  color: #acacac;
-  font-size: 11px;
+/* line 186, ../sass/main.scss */
+.dragdrop .item {
+  width: 200px;
+  height: 19px;
+  line-height: 19px;
+}
+/* line 191, ../sass/main.scss */
+.dragdrop .item.aj-dragstart {
+  opacity: 0.6;
 }

@@ -79,7 +79,26 @@ header.pagehead {
   padding: 0 $lrPadding;
 }
 
+.finsky {
+  .product {
+    -webkit-flex-direction: row;
+    -webkit-align-items: center;
+    background-color: $grayLightest;
+    padding: 10px;
+    -webkit-user-select: none;
 
+    .name {
+      -webkit-flex: 1;
+    }
+
+    .detail {
+      color: $grayLight;
+      font-size: 11px;
+    }
+  }
+}
+
+// MultiSelect --------------------------------
 .multiselect {
   display: -webkit-flex;
   -webkit-flex-direction: row;
@@ -149,21 +168,28 @@ header.pagehead {
       }
     }
   }
+}
 
-  .product {
-    -webkit-flex-direction: row;
-    -webkit-align-items: center;
-    background-color: $grayLightest;
-    padding: 10px;
-    -webkit-user-select: none;
+// DragDrop --------------------------------
+.dragdrop {
+  .dropzone {
+    border: 1px solid $lineColor;
+    height: 400px;
+    width: 400px;
 
-    .name {
-      -webkit-flex: 1;
+    .dropped {
+      background-color: $grayLighter;
+      padding: 4px 10px;
     }
+  }
 
-    .detail {
-      color: $grayLight;
-      font-size: 11px;
+  .item {
+    width: 200px;
+    height: $lineHeight;
+    line-height: $lineHeight;
+
+    &.aj-dragstart {
+      opacity: 0.6;
     }
   }
 }
