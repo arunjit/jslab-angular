@@ -8,12 +8,12 @@
         <li ng-repeat="product in getSelectedDocuments()" class="product">
           <span class="name">{{product.name}}</span>
           <span class="detail">{{product.detail.join(', ')}}</span>
-          <!-- <span class="delete" ng-click="deselect(product)">&nbsp;</span> -->
+          <span class="delete" ng-click="deselect(product)">&nbsp;</span>
         </li>
       </ul>
       <div class="buttonbar">
-        <button ng-disabled="!hasDocuments" class="submit">Save</button>
-        <button ng-disabled="!hasDocuments" ng-click="clearDocuments()">Clear</button>
+        <button ng-disabled="!hasDocuments()" class="submit">Save</button>
+        <button ng-disabled="!hasDocuments()" ng-click="clearDocuments()">Clear</button>
       </div>
     </section>
 
@@ -24,12 +24,12 @@
         <li ng-repeat="product in getSelectedAccessories()" class="product">
           <span class="name">{{product.name}}</span>
           <span class="detail">{{product.detail.join(', ')}}</span>
-          <!-- <span class="delete" ng-click="deselect(product)">&nbsp;</span> -->
+          <span class="delete" ng-click="deselect(product)">&nbsp;</span>
         </li>
       </ul>
       <div class="buttonbar">
-        <button ng-disabled="!hasAccessories" class="submit">Save</button>
-        <button ng-disabled="!hasAccessories" ng-click="clearAccessories()">Clear</button>
+        <button ng-disabled="!hasAccessories()" class="submit">Save</button>
+        <button ng-disabled="!hasAccessories()" ng-click="clearAccessories()">Clear</button>
       </div>
     </section>
   </section>
@@ -37,7 +37,7 @@
   <section class="dataset col3">
     <div class="buttonbar">
       <input type="search" placeholder="Search" ng-model="search">
-      <button ng-disabled="!hasDocuments && !hasAccessories" ng-click="clearAll()">Clear All</button>
+      <button ng-disabled="!hasDocuments() && !hasAccessories()" ng-click="clearAll()">Clear All</button>
     </div>
     <ul>
       <li ng-repeat="product in list | filter:search" class="product"

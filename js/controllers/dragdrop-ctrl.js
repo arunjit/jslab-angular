@@ -4,8 +4,6 @@ angular.module('main').controller('DragDropCtrl',
     function($scope, $http) {
       var list = $scope.list = [];
       $scope.search = '';
-      $scope.hasDocuments = false;
-      $scope.hasAccessories = false;
 
       // Type enum
       var DOCUMENT = 'document', ACCESSORY = 'accessory';
@@ -14,6 +12,14 @@ angular.module('main').controller('DragDropCtrl',
 
       var isSelected = $scope.isSelected = function(product) {
         return !!product.selected;
+      };
+
+      var isDocument = $scope.isDocument = function(product) {
+        return product.collection === DOCUMENT;
+      };
+
+      var isAccessory = $scope.isAccessory = function(product) {
+        return product.collection === ACCESSORY;
       };
 
       var select = $scope.select = function(product) {
@@ -31,15 +37,15 @@ angular.module('main').controller('DragDropCtrl',
       }
 
       var getDocuments = function() {
-        return list.filter(function(p) {return p.collection === DOCUMENT});
+        return list.filter(isDocument);
+      };
+
+      var getAccessories = function() {
+        return list.filter(isAccessory);
       };
 
       $scope.getSelectedDocuments = function() {
         return getDocuments().filter(isSelected);
-      };
-
-      var getAccessories = function() {
-        return list.filter(function(p) {return p.collection === ACCESSORY});
       };
 
       $scope.getSelectedAccessories = function() {
@@ -53,7 +59,6 @@ angular.module('main').controller('DragDropCtrl',
         if (product) {
           product.collection = DOCUMENT;
           select(product);
-          $scope.hasDocuments = true;
         }
       };
 
@@ -62,7 +67,6 @@ angular.module('main').controller('DragDropCtrl',
         if (product) {
           product.collection = ACCESSORY;
           select(product);
-          $scope.hasAccessories = true;
         }
       };
 
@@ -70,21 +74,27 @@ angular.module('main').controller('DragDropCtrl',
 
       $scope.clearDocuments = function() {
         getDocuments().forEach(deselect);
-        $scope.hasDocuments = false;
       };
 
       $scope.clearAccessories = function() {
         getAccessories().forEach(deselect);
-        $scope.hasAccessories = false;
       };
 
       $scope.clearAll = function() {
         list.forEach(deselect);
-        $scope.hasDocuments = false;
-        $scope.hasAccessories = false;
       };
 
-      // Init
+      // Oof! Severly needs to be optimized.
+
+      $scope.hasDocuments = function() {
+        return !!$scope.getSelectedDocuments().length;
+      };
+
+      $scope.hasAccessories = function() {
+        return !!$scope.getSelectedAccessories().length;
+      };
+
+      // Load data
       $http.get('data/products.json').success(function(d) {
         list.push.apply(list, d);
       });
