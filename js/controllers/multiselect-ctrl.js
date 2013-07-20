@@ -1,37 +1,42 @@
+'use strict';
+
 angular.module('main').controller('MultiSelectCtrl',
     function($scope, $http) {
-      var list = $scope.list = [];
-      $scope.model = {
-        filter: ''
-      };
+      this.list = [];
+      this.search = '';
 
-      $http.get('data/products.json').success(function(d) {
-        list.push.apply(list, d);
-      });
-
-      var isSelected = $scope.isSelected = function(product) {
+      this.isSelected = function(product) {
         return !!product.selected;
       };
 
-      $scope.countSelected = function() {
-        return list.filter(isSelected).length;
+      this.countSelected = function() {
+        return this.list.filter(this.isSelected).length;
       };
 
-      $scope.toggle = function(product) {
+      this.toggle = function(product) {
         product.selected = !product.selected;
       };
 
-      var deselect = $scope.deselect = function(product) {
+      this.deselect = function(product) {
         product.selected = false;
       };
 
-      $scope.clear = function() {
-        list.forEach(deselect);
+      this.clear = function() {
+        this.list.forEach(this.deselect);
       };
 
-      $scope.save = function() {
-        var selections = list.filter(isSelected);
+      this.save = function() {
+        var selections = this.list.filter(this.isSelected);
         console.log("SAVE:", selections);
       };
+
+      // Till controllerAs syntax is stable.
+      $scope.ctrl = this;
+
+      // Load data
+      var self = this;
+      $http.get('data/products.json').success(function(d) {
+        self.list.push.apply(self.list, d);
+      });
     }
 );

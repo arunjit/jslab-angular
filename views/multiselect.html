@@ -1,28 +1,28 @@
 <section class="multiselect finsky columns">
   <section class="selection col1">
     <ul>
-      <li ng-repeat="product in list | filter:isSelected" class="product">
+      <li ng-repeat="product in ctrl.list | filter:ctrl.isSelected" class="product">
         <span class="name">{{product.name}}</span>
         <span class="detail">{{product.detail.join(', ')}}</span>
-        <span class="delete" ng-click="deselect(product)">&nbsp;</span>
+        <span class="delete" ng-click="ctrl.deselect(product)">&nbsp;</span>
       </li>
-      <!-- Can be used like this to not have to create $scope.deselect() -->
+      <!-- Can be used like this to not have to create ctrl.deselect() -->
       <!-- <span class="delete" ng-click="product.selected = false">&nbsp;</span> -->
     </ul>
     <div class="buttonbar">
-      <button class="submit" ng-disabled="!countSelected()" ng-click="save()">Save</button>
+      <button class="submit" ng-disabled="!ctrl.countSelected()" ng-click="ctrl.save()">Save</button>
     </div>
   </section>
 
   <section class="dataset col3">
     <div class="buttonbar">
-      <input type="search" placeholder="Filter" ng-model="model.filter">
-      <button ng-click="clear()" ng-disabled="!countSelected()">Clear</button>
+      <input type="search" placeholder="Search" ng-model="ctrl.search">
+      <button ng-click="ctrl.clear()" ng-disabled="!ctrl.countSelected()">Clear</button>
     </div>
     <ul>
-      <li ng-repeat="product in list | filter:model.filter" class="product"
-          ng-click="toggle(product)"
-          ng-class="{selected: isSelected(product)}">
+      <li ng-repeat="product in ctrl.list | filter:ctrl.search" class="product"
+          ng-click="ctrl.toggle(product)"
+          ng-class="{selected: ctrl.isSelected(product)}">
         <span class="name">{{product.name}}</span>
         <span class="detail">{{product.detail.join(', ')}}</span>
       </li>
