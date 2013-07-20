@@ -6,12 +6,6 @@ angular.module('main').directive('ajDrag',
 
       function setupDrag(element) {
         element.attr('draggable', 'true');
-        element.css({
-          'cursor': 'move',
-          'user-select': 'none',
-          '-moz-user-select': 'none',
-          '-webkit-user-select': 'none'
-        });
       }
 
       function handleDragStart(element) {

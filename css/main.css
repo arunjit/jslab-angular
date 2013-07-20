@@ -365,29 +365,33 @@ header.pagehead nav {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 226, ../sass/main.scss */
+/* line 225, ../sass/main.scss */
+.dragdrop .product {
+  cursor: move;
+}
+/* line 227, ../sass/main.scss */
 .dragdrop .product.selected {
   color: white;
   background-color: #4d90fe;
 }
-/* line 230, ../sass/main.scss */
+/* line 231, ../sass/main.scss */
 .dragdrop .product.selected .detail {
   color: #e5e5e5;
 }
-/* line 234, ../sass/main.scss */
+/* line 235, ../sass/main.scss */
 .dragdrop .product.disabled, .dragdrop .product:disabled {
   opacity: 0.5;
 }
-/* line 239, ../sass/main.scss */
+/* line 240, ../sass/main.scss */
 .dragdrop .dragstart {
   opacity: 0.5;
 }
 
-/* line 244, ../sass/main.scss */
+/* line 245, ../sass/main.scss */
 .dropzone {
   border: 1px solid transparent;
 }
-/* line 247, ../sass/main.scss */
+/* line 248, ../sass/main.scss */
 .dropzone.dragover {
   border-color: #4d90fe;
 }

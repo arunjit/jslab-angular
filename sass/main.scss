@@ -223,6 +223,7 @@ header.pagehead {
   }
 
   .product {
+    cursor: move;
     &.selected {
       color: $white;
       background-color: $blue;
