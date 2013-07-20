@@ -2,101 +2,109 @@
 
 angular.module('main').controller('DragDropCtrl',
     function($scope, $http) {
-      var list = $scope.list = [];
-      $scope.search = '';
+      this.list = [];
+      this.search = '';
 
       // Type enum
       var DOCUMENT = 'document', ACCESSORY = 'accessory';
 
       // Product methods
 
-      var isSelected = $scope.isSelected = function(product) {
+      this.isSelected = function(product) {
         return !!product.selected;
       };
 
-      var isDocument = $scope.isDocument = function(product) {
+      this.isDocument = function(product) {
         return product.collection === DOCUMENT;
       };
 
-      var isAccessory = $scope.isAccessory = function(product) {
+      this.isAccessory = function(product) {
         return product.collection === ACCESSORY;
       };
 
-      var select = $scope.select = function(product) {
+      this.select = function(product) {
         product.selected = true;
       }
 
-      var deselect = $scope.deselect = function(product) {
+      this.deselect = function(product) {
         product.selected = false;
-      }
+      };
 
       // Simplified list methods. Need to be optimized for large N.
 
-      var get = function(id) {
-        return list.filter(function(p) {return p.id === id})[0];
+      this.get = function(id) {
+        return this.list.filter(function(p) {return p.id === id})[0];
       }
 
-      var getDocuments = function() {
-        return list.filter(isDocument);
+      this.getDocuments = function() {
+        return this.list.filter(this.isDocument);
       };
 
-      var getAccessories = function() {
-        return list.filter(isAccessory);
+      this.getAccessories = function() {
+        return this.list.filter(this.isAccessory);
       };
 
-      $scope.getSelectedDocuments = function() {
-        return getDocuments().filter(isSelected);
+      this.getSelectedDocuments = function() {
+        return this.getDocuments().filter(this.isSelected);
       };
 
-      $scope.getSelectedAccessories = function() {
-        return getAccessories().filter(isSelected);
+      this.getSelectedAccessories = function() {
+        return this.getAccessories().filter(this.isSelected);
       };
 
       // Drop handlers
 
-      $scope.onDropDocument = function(id) {
-        var product = get(id);
+      this.onDropDocument = function(id) {
+        var product = this.get(id);
         if (product) {
           product.collection = DOCUMENT;
-          select(product);
+          this.select(product);
         }
       };
 
-      $scope.onDropAccessory = function(id) {
-        var product = get(id);
+      this.onDropAccessory = function(id) {
+        var product = this.get(id);
         if (product) {
           product.collection = ACCESSORY;
-          select(product);
+          this.select(product);
         }
       };
 
       // Buttons
 
-      $scope.clearDocuments = function() {
-        getDocuments().forEach(deselect);
+      this.clearDocuments = function() {
+        this.getDocuments().forEach(this.deselect);
       };
 
-      $scope.clearAccessories = function() {
-        getAccessories().forEach(deselect);
+      this.clearAccessories = function() {
+        this.getAccessories().forEach(this.deselect);
       };
 
-      $scope.clearAll = function() {
-        list.forEach(deselect);
+      this.clearAll = function() {
+        this.list.forEach(this.deselect);
       };
 
       // Oof! Severly needs to be optimized.
 
-      $scope.hasDocuments = function() {
-        return !!$scope.getSelectedDocuments().length;
+      this.hasDocuments = function() {
+        return !!this.getSelectedDocuments().length;
       };
 
-      $scope.hasAccessories = function() {
-        return !!$scope.getSelectedAccessories().length;
+      this.hasAccessories = function() {
+        return !!this.getSelectedAccessories().length;
       };
+
+      this.hasSelection = function() {
+        return this.list.filter(this.isSelected).length;
+      };
+
+      // Till controllerAs syntax is stable;
+      $scope.ctrl = this;
 
       // Load data
+      var self = this;
       $http.get('data/products.json').success(function(d) {
-        list.push.apply(list, d);
+        self.list.push.apply(self.list, d);
       });
     }
 );
