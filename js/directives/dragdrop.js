@@ -27,7 +27,6 @@ angular.module('main').directive('ajDrag',
         link: function(scope, element, attrs) {
           if ((attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) ||
               element.hasClass('disabled')) {
-            console.log(scope.$eval(attrs.ngDisabled));
             return;
           }
           var data = scope.$eval(attrs.ajDrag || attrs.ngModel);
