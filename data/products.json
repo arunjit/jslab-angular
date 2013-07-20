@@ -1,53 +1,62 @@
 [
   {
+    "id": 1000,
     "name": "Nexus 4",
     "family": "Nexus",
     "type": "phone",
     "detail": ["8GB", "black"]
   },
   {
+    "id": 1001,
     "name": "Nexus 4",
     "family": "Nexus",
     "type": "phone",
     "detail": ["16GB", "black"]
   },
   {
+    "id": 1002,
     "name": "Nexus 4",
     "family": "Nexus",
     "type": "phone",
     "detail": ["8GB", "white"]
   },
   {
+    "id": 1003,
     "name": "Nexus 4",
     "family": "Nexus",
     "type": "phone",
     "detail": ["16GB", "white"]
   },
   {
+    "id": 1004,
     "name": "Nexus 7",
     "family": "Nexus",
     "type": "tablet",
     "detail": ["32GB", "black"]
   },
   {
+    "id": 1005,
     "name": "Nexus 4 Headphones",
     "family": "Nexus",
     "type": "accessory",
     "detail": ["black"]
   },
   {
+    "id": 1006,
     "name": "Nexus 4 Wireless Charger",
     "family": "Nexus",
     "type": "accessory",
     "detail": ["black"]
   },
   {
+    "id": 1007,
     "name": "Nexus 4 Bumper",
     "family": "Nexus",
     "type": "accessory",
     "detail": ["black"]
   },
   {
+    "id": 1008,
     "name": "Nexus 4 Bumper",
     "family": "Nexus",
     "type": "accessory",

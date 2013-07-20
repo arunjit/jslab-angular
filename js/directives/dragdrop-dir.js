@@ -2,9 +2,7 @@
 
 angular.module('main').directive('ajDrag',
     function($parse) {
-      var dragstart = 'aj-dragstart';
-      var dragend = 'aj-dragend';
-      var classes = [dragstart, dragend].join(' ');
+      var dragstart = 'dragstart';
 
       function setupDrag(element) {
         element.attr('draggable', 'true');
@@ -16,20 +14,26 @@ angular.module('main').directive('ajDrag',
         });
       }
 
-      function handleDragStart(e) {
-        angular.element(e.target).removeClass(classes).addClass(dragstart);
-        e.dataTransfer.effectAllowed = 'copy';
+      function handleDragStart(element) {
+        return function(e) {
+          element.addClass(dragstart);
+          e.dataTransfer.effectAllowed = 'copy';
+        };
       }
 
-      function handleDragEnd(e) {
-        angular.element(e.target).removeClass(classes).addClass(dragend);
+      function handleDragEnd(element) {
+        return function(e) {
+          element.removeClass(dragstart);
+        };
       }
 
       // Directive:
       return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-          if (attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) {
+          if ((attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) ||
+              element.hasClass('disabled')) {
+            element.addClass('disabled');
             return;
           }
           var data = scope.$eval(attrs.ajDrag || attrs.ngModel);
@@ -39,7 +43,7 @@ angular.module('main').directive('ajDrag',
 
           // Start dragging
           element.bind('dragstart', function(e) {
-            handleDragStart(e);
+            handleDragStart(element)(e);
 
             e.dataTransfer.setData('text/json', angular.toJson(data));
             scope.$apply(function() {
@@ -50,43 +54,57 @@ angular.module('main').directive('ajDrag',
           });
 
           // Stop dragging
-          element.bind('dragend', handleDragEnd);
+          element.bind('dragend', handleDragEnd(element));
         }
       };
     }
 ).directive('ajDrop',
     function($parse) {
-      var dragover = 'aj-dragover';
-      var drop = 'aj-drop';
+      var dragover = 'dragover';
+      var drop = 'drop';
       var classes = [dragover, drop].join(' ');
 
-      function handleDragOver(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        angular.element(e.target).removeClass(classes).addClass(dragover);
+      function handleDragOver(element) {
+        return function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          element.removeClass(classes).addClass(dragover);
+        };
       }
 
-      function handleDrop(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        angular.element(e.target).removeClass(classes).addClass(drop);
-        e.dataTransfer.dropEffect = 'copy';
+      function handleDragLeave(element) {
+        return function(e) {
+          element.removeClass(classes);
+        };
+      }
+
+      function handleDrop(element) {
+        return function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          e.dataTransfer.dropEffect = 'copy';
+          element.removeClass(classes).addClass(drop);
+        };
       }
 
       // Directive:
       return {
         restrict: 'A',
         link: function(scope, element, attrs) {
-          if (attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) {
+          if ((attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) ||
+              element.hasClass('disabled')) {
+            element.addClass('disabled');
             return;
           }
           var dropModel = attrs.ajDrop || attrs.ngModel;
           var dropFn = $parse(attrs.ajDropFn);
 
-          element.bind('dragover', handleDragOver);
+          element.bind('dragover', handleDragOver(element));
+          element.bind('dragleave', handleDragLeave(element));
 
+          // Handle drop
           element.bind('drop', function(e) {
-            handleDrop(e);
+            handleDrop(element)(e);
             var data = angular.fromJson(e.dataTransfer.getData('text/json'));
             scope.$apply(function() {
               dropModel && $parse(dropModel).assign(scope, data);

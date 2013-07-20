@@ -283,46 +283,36 @@ header.pagehead nav {
 /* line 135, ../sass/main.scss */
 .finsky .dataset .product {
   display: -webkit-inline-flex;
-  cursor: pointer;
   margin: 0 10px 10px 0;
   width: 33%;
 }
 /* line 141, ../sass/main.scss */
-.finsky .dataset .product.selected {
-  color: white;
-  background-color: #4d90fe;
-}
-/* line 145, ../sass/main.scss */
-.finsky .dataset .product.selected .detail {
-  color: #e5e5e5;
-}
-/* line 151, ../sass/main.scss */
 .finsky .dataset ul {
   margin-top: 10px;
 }
-/* line 156, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .finsky .dataset .buttonbar input {
   margin-right: 20px;
   width: 50%;
 }
-/* line 163, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .finsky .selection {
   display: -webkit-flex;
   -webkit-flex-direction: column;
   background-color: #e5e5e5;
   padding: 10px;
 }
-/* line 169, ../sass/main.scss */
+/* line 159, ../sass/main.scss */
 .finsky .selection ul {
   -webkit-flex: 1;
   overflow: scroll;
 }
-/* line 173, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 .finsky .selection ul .product {
   display: -webkit-flex;
   margin: 0 0 5px 0;
 }
-/* line 177, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 .finsky .selection ul .product .delete {
   background-image: url("/images/delete.png");
   background-position: center center;
@@ -334,31 +324,70 @@ header.pagehead nav {
   width: 20px;
   opacity: 0.6;
 }
-/* line 191, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 .finsky .selection .buttonbar {
   margin-top: 10px;
 }
 
-/* line 198, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 .multiselect {
   margin-top: 10px;
 }
+/* line 192, ../sass/main.scss */
+.multiselect .dataset .product {
+  cursor: pointer;
+}
+/* line 195, ../sass/main.scss */
+.multiselect .dataset .product.selected {
+  color: white;
+  background-color: #4d90fe;
+}
+/* line 199, ../sass/main.scss */
+.multiselect .dataset .product.selected .detail {
+  color: #e5e5e5;
+}
 
-/* line 203, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 .dragdrop {
   margin-top: 10px;
 }
-/* line 206, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 .dragdrop .selections {
   display: -webkit-flex;
   -webkit-flex-direction: column;
 }
-/* line 210, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 .dragdrop .selections .selection {
   -webkit-flex: 1;
 }
-/* line 214, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 .dragdrop .selections h3 {
   font-weight: bold;
   text-transform: uppercase;
+}
+/* line 226, ../sass/main.scss */
+.dragdrop .product.selected {
+  color: white;
+  background-color: #4d90fe;
+}
+/* line 230, ../sass/main.scss */
+.dragdrop .product.selected .detail {
+  color: #e5e5e5;
+}
+/* line 234, ../sass/main.scss */
+.dragdrop .product.disabled, .dragdrop .product:disabled {
+  opacity: 0.5;
+}
+/* line 239, ../sass/main.scss */
+.dragdrop .dragstart {
+  opacity: 0.5;
+}
+
+/* line 244, ../sass/main.scss */
+.dropzone {
+  border: 1px solid transparent;
+}
+/* line 247, ../sass/main.scss */
+.dropzone.dragover {
+  border-color: #4d90fe;
 }

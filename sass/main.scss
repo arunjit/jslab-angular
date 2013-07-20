@@ -134,18 +134,8 @@ header.pagehead {
 
     .product {
       display: -webkit-inline-flex;
-      cursor: pointer;
       margin: 0 10px 10px 0;
       width: 33%;
-
-      &.selected {
-        color: $white;
-        background-color: $blue;
-
-        .detail {
-          color: $grayLighter;
-        }
-      }
     }
 
     ul {
@@ -197,6 +187,21 @@ header.pagehead {
 // MultiSelect --------------------------------
 .multiselect {
   margin-top: 10px;
+
+  .dataset {
+    .product {
+      cursor: pointer;
+
+      &.selected {
+        color: $white;
+        background-color: $blue;
+
+        .detail {
+          color: $grayLighter;
+        }
+      }
+    }
+  }
 }
 
 // DragDrop --------------------------------
@@ -215,5 +220,31 @@ header.pagehead {
       font-weight: bold;
       text-transform: uppercase;
     }
+  }
+
+  .product {
+    &.selected {
+      color: $white;
+      background-color: $blue;
+
+      .detail {
+        color: $grayLighter;
+      }
+    }
+    &.disabled, &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .dragstart {
+    opacity: 0.5;
+  }
+}
+
+.dropzone {
+  border: 1px solid transparent;
+
+  &.dragover {
+    border-color: $blue;
   }
 }
