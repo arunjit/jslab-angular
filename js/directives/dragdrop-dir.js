@@ -33,7 +33,7 @@ angular.module('main').directive('ajDrag',
         link: function(scope, element, attrs) {
           if ((attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) ||
               element.hasClass('disabled')) {
-            element.addClass('disabled');
+            console.log(scope.$eval(attrs.ngDisabled));
             return;
           }
           var data = scope.$eval(attrs.ajDrag || attrs.ngModel);
@@ -93,7 +93,6 @@ angular.module('main').directive('ajDrag',
         link: function(scope, element, attrs) {
           if ((attrs.ngDisabled && scope.$eval(attrs.ngDisabled)) ||
               element.hasClass('disabled')) {
-            element.addClass('disabled');
             return;
           }
           var dropModel = attrs.ajDrop || attrs.ngModel;
