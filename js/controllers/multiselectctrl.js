@@ -6,7 +6,7 @@ angular.module('main').controller('MultiSelectCtrl',
       this.search = '';
 
       this.isSelected = function(product) {
-        return !!product.selected;
+        return !!product && !!product.selected;
       };
 
       this.countSelected = function() {
@@ -14,10 +14,12 @@ angular.module('main').controller('MultiSelectCtrl',
       };
 
       this.toggle = function(product) {
+        if (!product) return;
         product.selected = !product.selected;
       };
 
       this.deselect = function(product) {
+        if (!product) return;
         product.selected = false;
       };
 
