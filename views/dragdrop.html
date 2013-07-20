@@ -5,7 +5,8 @@
     <section class="documents selection dropzone"
              aj-drop aj-drop-fn="onDropDocument($data)">
       <ul>
-        <li ng-repeat="product in getSelectedDocuments()" class="product">
+        <li ng-repeat="product in getSelectedDocuments()" class="product"
+            aj-drag="product.id">
           <span class="name">{{product.name}}</span>
           <span class="detail">{{product.detail.join(', ')}}</span>
           <span class="delete" ng-click="deselect(product)">&nbsp;</span>
@@ -21,7 +22,8 @@
     <section class="accessories selection dropzone"
              aj-drop aj-drop-fn="onDropAccessory($data)">
       <ul>
-        <li ng-repeat="product in getSelectedAccessories()" class="product">
+        <li ng-repeat="product in getSelectedAccessories()" class="product"
+            aj-drag="product.id">
           <span class="name">{{product.name}}</span>
           <span class="detail">{{product.detail.join(', ')}}</span>
           <span class="delete" ng-click="deselect(product)">&nbsp;</span>
