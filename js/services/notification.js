@@ -88,8 +88,8 @@ directive('notificationBar', function($rootScope, $timeout, notificationService)
         scope.hide = false;
         scope.error = !!options.error;
         scope.dismissable = !!options.dismissable;
+        cancelTimeout();
         if (options.timeout) {
-          cancelTimeout();
           lastTimeout = $timeout(hide(scope), options.timeout * 1000);
         }
       });
