@@ -1,0 +1,11 @@
+<section class="notifications-demo">
+  <h3>Notifications</h3>
+  <label>Message:</label><input type="text" ng-model="ctrl.notification" placeholder="Notification"><br>
+  <label>Timeout:</label><input type="number" ng-model="ctrl.options.timeout"><br>
+  <label>Error:</label><input type="checkbox" ng-model="ctrl.options.error"><br>
+  <label>Dissmissable:</label><input type="checkbox" ng-model="ctrl.options.dismissable"><br>
+  <button ng-click="ctrl.showNotification(ctrl.notification, ctrl.options)">
+    Show Notification
+  </button>
+  <button ng-click="ctrl.hideNotification()">Hide Notification</button>
+</section>

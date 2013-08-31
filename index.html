@@ -6,19 +6,23 @@
 </head>
 <body ng-app="main">
 
+  <div notification-bar></div>
   <header class="pagehead">
     <h1><a href="#/">Angular Experiments</a></h1>
-    <nav>
-      <a href="#/multiselect">MultiSelect</a>
-      <a href="#/dragdrop">DragDrop</a>
+    <nav aj-nav current-class="selected">
+      <a aj-nav-item href="#/multiselect">MultiSelect</a>
+      <a aj-nav-item href="#/dragdrop">DragDrop</a>
     </nav>
   </header>
 
-  <section class="content" ng-view></section>
+  <section id="content" ng-view></section>
 
   <script src="components/angular/angular.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/services/notification.js"></script>
+  <script src="js/directives/nav.js"></script>
   <script src="js/directives/dragdrop.js"></script>
+  <script src="js/controllers/homectrl.js"></script>
   <script src="js/controllers/multiselectctrl.js"></script>
   <script src="js/controllers/dragdropctrl.js"></script>
 </body>
