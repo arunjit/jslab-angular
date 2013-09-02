@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('main').controller('MultiSelectCtrl',
-    function($scope, $http) {
+    function($scope, $http, productList) {
       this.list = [];
       this.search = '';
 
@@ -36,9 +36,6 @@ angular.module('main').controller('MultiSelectCtrl',
       $scope.ctrl = this;
 
       // Load data
-      var self = this;
-      $http.get('data/products.json').success(function(d) {
-        self.list.push.apply(self.list, d);
-      });
+      this.list.push.apply(this.list, productList);
     }
 );
