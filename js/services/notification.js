@@ -49,7 +49,7 @@ service('notificationService', function($rootScope) {
     $rootScope.$emit('hideNotification');
   };
 }).
-directive('notificationBar', function($rootScope, $timeout, notificationService) {
+directive('notificationBar', function($rootScope, $timeout) {
   var template =
       '<div class="notification-bar" ng-hide="hide" ng-init="hide=true">' +
       '  <div class="content" ng-class="{error:error}">' +
