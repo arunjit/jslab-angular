@@ -154,6 +154,11 @@ h3 {
   }
 }
 
+// Controls page -------------------------
+.controls-demo {
+  padding: 20px;
+}
+
 //
 
 #content {
@@ -164,7 +169,7 @@ h3 {
   @include flex-direction(column);
   @include flex(1);
 
-  div:first-child, section:first-child {
+  & > div, & > section {
     @include flex(1);
     margin-bottom: 10px;
   }
