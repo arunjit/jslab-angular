@@ -8,7 +8,10 @@
 'use strict';
 
 angular.module('main').
-service('notificationService', function($rootScope) {
+constant('showNotification', Math.random().toString(36) + '-showNotification').
+constant('hideNotification', Math.random().toString(36) + '-hideNotification').
+service('notificationService', function(
+    $rootScope, showNotification, hideNotification) {
 
   /** @typedef {{timeout: number, error: boolean, dismissable: boolean}} */
   var NotificationOptions;
@@ -41,15 +44,16 @@ service('notificationService', function($rootScope) {
    */
   this.show = function(message, options) {
     options = angular.extend({}, defaultOptions, options);
-    $rootScope.$emit('showNotification', message, options);
+    $rootScope.$emit(showNotification, message, options);
   };
 
   /** Hides the notification(s). */
   this.hide = function() {
-    $rootScope.$emit('hideNotification');
+    $rootScope.$emit(hideNotification);
   };
 }).
-directive('notificationBar', function($rootScope, $timeout) {
+directive('notificationBar', function(
+    $rootScope, $timeout, showNotification, hideNotification) {
   var template =
       '<div class="notification-bar" ng-hide="hide" ng-init="hide=true">' +
       '  <div class="content" ng-class="{error:error}">' +
@@ -83,7 +87,7 @@ directive('notificationBar', function($rootScope, $timeout) {
     replace: true,
     // transclude: true,
     link: function(scope, element, attrs) {
-      $rootScope.$on('showNotification', function(event, message, options) {
+      $rootScope.$on(showNotification, function(event, message, options) {
         scope.message = message;
         scope.hide = false;
         scope.error = !!options.error;
@@ -93,7 +97,7 @@ directive('notificationBar', function($rootScope, $timeout) {
           lastTimeout = $timeout(hide(scope), options.timeout * 1000);
         }
       });
-      $rootScope.$on('hideNotification', hide(scope));
+      $rootScope.$on(hideNotification, hide(scope));
       $rootScope.$on('$routeChangeSuccess', hide(scope));
       scope.close = hide(scope);
     }
