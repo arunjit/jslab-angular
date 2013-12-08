@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main').
+angular.module('jslab.nav', []).
 directive('ajNav', function() {
   return {
     restrict: 'A',

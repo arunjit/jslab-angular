@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('main').
+angular.module('jslab.dragdrop', []).
 directive('ajDrag', function($parse) {
   var dragstart = 'dragstart';
 

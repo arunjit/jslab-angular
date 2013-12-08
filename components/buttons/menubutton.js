@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('main').
+angular.module('jslab.buttons').
 directive('ajMenuButton', function($document) {
   var template =
-      '<button ng-click="open()">{{title}}</button>' +
+      '<button ng-click="open()">{{label}}</button>' +
       '<div ng-show="opened" ng-transclude></div>';
   return {
-    scope: {'title': '@title'},
+    scope: {'label': '@label'},
     restrict: 'AE',
     template: template,
     transclude: true,

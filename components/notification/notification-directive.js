@@ -7,51 +7,7 @@
 
 'use strict';
 
-angular.module('main').
-constant('showNotification', Math.random().toString(36) + '-showNotification').
-constant('hideNotification', Math.random().toString(36) + '-hideNotification').
-service('notificationService', function(
-    $rootScope, showNotification, hideNotification) {
-
-  /** @typedef {{timeout: number, error: boolean, dismissable: boolean}} */
-  var NotificationOptions;
-
-  /*
-   * Default notification options.
-   *
-   *   timeout: timeout to hide notification(s) (seconds).
-   *   error: Show notification as an error.
-   *   dismissable: Can be dismissed by a user.
-   *
-   * @type {NotificationOptions}
-   */
-  var defaultOptions = {
-    timeout: 0,
-    error: false,
-    dismissable: false
-  };
-
-  /**
-   * Shows the notification(s).
-   *
-   * Options:
-   *   timeout: timeout to hide notification(s) (seconds).
-   *   error: Show notification as an error.
-   *   dismissable: Can be dismissed by a user.
-   *
-   * @param {string} message The message to show.
-   * @param {NotificationOptions} options Notification options.
-   */
-  this.show = function(message, options) {
-    options = angular.extend({}, defaultOptions, options);
-    $rootScope.$emit(showNotification, message, options);
-  };
-
-  /** Hides the notification(s). */
-  this.hide = function() {
-    $rootScope.$emit(hideNotification);
-  };
-}).
+angular.module('jslab.notification').
 directive('notificationBar', function(
     $rootScope, $timeout, showNotification, hideNotification) {
   var template =
@@ -72,11 +28,11 @@ directive('notificationBar', function(
 
   var hide = function(scope) {
     return function() {
+      cancelTimeout();
       scope.message = '';
       scope.hide = true;
       scope.error = false;
       scope.dismissable = false;
-      cancelTimeout();
     };
   };
 
