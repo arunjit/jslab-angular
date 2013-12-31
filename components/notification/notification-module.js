@@ -9,4 +9,4 @@
 
 angular.module('jslab.notification', []).
 constant('showNotification', Math.random().toString(36) + '-showNotification').
-constant('hideNotification', Math.random().toString(36) + '-hideNotification').;
+constant('hideNotification', Math.random().toString(36) + '-hideNotification');

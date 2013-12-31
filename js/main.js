@@ -1,4 +1,10 @@
-angular.module('main', []).
+angular.module('main', [
+  'ngRoute',
+  'jslab.buttons',
+  'jslab.dragdrop',
+  'jslab.nav',
+  'jslab.notification'
+]).
 config(function($routeProvider) {
   $routeProvider.
       when('/', {
