@@ -3,6 +3,8 @@
 <head>
   <title>Angular experiments</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
 </head>
 <body ng-app="main">
 
@@ -13,6 +15,7 @@
       <a aj-nav-item href="#/multiselect">MultiSelect</a>
       <a aj-nav-item href="#/dragdrop">DragDrop</a>
       <a aj-nav-item href="#/controls">Controls</a>
+      <a aj-nav-item href="#/editor">Editor</a>
     </nav>
   </header>
 
@@ -20,6 +23,8 @@
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/textAngular/textAngular.js"></script>
   <script src="components/dragdrop/dragdrop.js"></script>
   <script src="components/buttons/module.js"></script>
   <script src="components/buttons/menubutton.js"></script>
@@ -29,6 +34,7 @@
   <script src="components/notification/notification-service.js"></script>
   <script src="js/main.js"></script>
   <script src="js/controllers/controls.js"></script>
+  <script src="js/controllers/editor.js"></script>
   <script src="js/controllers/dragdrop.js"></script>
   <script src="js/controllers/home.js"></script>
   <script src="js/controllers/multiselect.js"></script>

@@ -3,7 +3,8 @@ angular.module('main', [
   'jslab.buttons',
   'jslab.dragdrop',
   'jslab.nav',
-  'jslab.notification'
+  'jslab.notification',
+  'textAngular'
 ]).
 config(function($routeProvider) {
   $routeProvider.
@@ -32,6 +33,11 @@ config(function($routeProvider) {
       when('/controls', {
         templateUrl: 'views/controls.html',
         controller: 'ControlsCtrl'
+      }).
+      when('/editor', {
+        templateUrl: 'views/editor.html',
+        controller: 'EditorCtrl',
+        controllerAs: 'editor'
       }).
       otherwise({redirectTo: '/'});
 }).

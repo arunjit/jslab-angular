@@ -326,3 +326,14 @@ h3 {
     border-color: $blue;
   }
 }
+
+
+// Editor --------------------------------
+
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+}
